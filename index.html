@@ -8,9 +8,11 @@
   <body class="mixpanel-platform-body">
     <h1>Hello, World!</h1>
     <script>
-      MP.api.ready(function() {
-        // Run queries and display results here
-      });
+MP.api.ready(function() {
+    MP.api.topEvents({from: 'today', limit: 2}).done(function(results) {
+        console.log('top events\n', results.values());
+    });
+});
     </script>
   </body>
 </html>
