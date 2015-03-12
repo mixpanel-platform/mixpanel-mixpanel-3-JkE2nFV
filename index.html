@@ -1,9 +1,9 @@
 MP.api.ready(function() {
-    var contentSearched = MP.api.segment('viewed report', '$city', {
+    var contentSearched = MP.api.segment('Viewed report', '$city', {
         from: moment().subtract(1, 'months'),
         unit: 'day'
     });
-    var signup = MP.api.segment('api request', '$city', {
+    var signup = MP.api.segment('API request', '$city', {
         from: moment().subtract(1, 'months'),
         unit: 'day'
     });
