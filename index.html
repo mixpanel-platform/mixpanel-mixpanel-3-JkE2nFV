@@ -1,15 +1,14 @@
-// assumes you have events 'Content searched' and 'Button clicked'
 MP.api.ready(function() {
-    var contentSearched = MP.api.segment('Content searched', '$city', {
+    var contentSearched = MP.api.segment('viewed report', '$city', {
         from: moment().subtract(1, 'months'),
         unit: 'day'
     });
-    var signup = MP.api.segment('Button clicked', '$city', {
+    var signup = MP.api.segment('api request', '$city', {
         from: moment().subtract(1, 'months'),
         unit: 'day'
     });
 
-    $.when(contentSearched, signup).done(function(searched, signup) {
+    $.when(viewed report, signup).done(function(searched, signup) {
         signup = signup.values();
 
         _.each(searched.values(), function(value, city) {
@@ -31,8 +30,8 @@ MP.api.ready(function() {
             $('<div></div>').appendTo('body').MPChart({
                 chartType: 'line',
                 data: {
-                    'Content searched': value,
-                    'Button clicked': signup[city]
+                    'viewed report': value,
+                    'API request': value,
                 }
             });
         });
