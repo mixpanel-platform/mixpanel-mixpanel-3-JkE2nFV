@@ -1,23 +1,9 @@
-<!doctype html>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.css">
-    <script src="https://cdn.mxpnl.com/libs/mixpanel-platform/build/mixpanel-platform.v0.latest.min.js"></script>
-  </head>
-  <body class="mixpanel-platform-body">
-    <h1>Hello, World!</h1>
-    <script>
-      MP.api.ready(function() {
-    MP.api.topEvents({from: 'today', limit: 2}).done(function(results) {
-        console.log('top events\n', results.values());
-    });
-});
+var data = {
+  'segment1': 10,
+  'segment2': 20,
+  'segment3': 40
+};
 $(document).ready(function() {
-    var lineChart = $('<div></div>').appendTo('body').MPChart({chartType: 'line'});     // Create a line chart
-    lineChart.MPChart('setData', data);                                                 // Set the chart's data
+    var barChart = $('<div></div>').appendTo('body').MPChart({chartType: 'bar'});    // Create a bar chart
+    barChart.MPChart('setData', data);                                               // Set the chart's data
 });
-
-    </script>
-  </body>
-</html>
